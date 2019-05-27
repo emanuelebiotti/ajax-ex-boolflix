@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+.container {
+  width: 800px;
+  height:800px;
+  border:1px solid black;
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
+}
+.ricerca {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  width:200px;
+  height:40px;
+  font-size: 30px;
+}
+
+button {
+  width:200px;
+  height:40px;
+  font-size: 30px;
+  border-radius: 5px;
+}
