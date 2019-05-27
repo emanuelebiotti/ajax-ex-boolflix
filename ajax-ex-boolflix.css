@@ -34,6 +34,12 @@ button {
   color:white;
   font-family: sans-serif;
 }
+button:hover {
+  cursor:pointer;
+}
+button:focus {
+  outline:0;
+}
 .filmcontainer {
   width:70%;
   height:80%;
