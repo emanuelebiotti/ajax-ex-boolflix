@@ -5,6 +5,8 @@ $(document).ready(function(){
 
   $('button').click(function(){
 
+    $('.filmcontainer').empty();
+
     $.ajax({
       'url': 'https://api.themoviedb.org/3/search/movie',
       'method': 'GET',
@@ -13,8 +15,8 @@ $(document).ready(function(){
         'query': $('.cerca').val()
       },
       'success': function(res){
-        console.log(res);
-        console.log(res.results);
+        // console.log(res);
+        // console.log(res.results);
 
         var dettaglifilm = {
           'Titolo': '',
@@ -24,10 +26,10 @@ $(document).ready(function(){
         }
 
         for (var i = 0; i < res.results.length; i++) {
-          console.log(res.results[i].title);
-          console.log($('.cerca').val());
+          // console.log(res.results[i].title);
+          // console.log($('.cerca').val());
 
-          if (res.results[i].title.includes($('.cerca').val())) {
+          if (res.results[i].title.toLowerCase().includes($('.cerca').val())) {
             dettaglifilm.Titolo = res.results[i].title;
             dettaglifilm.Titolo_originale = res.results[i].original_title;
             dettaglifilm.Lingua = res.results[i].original_language;
@@ -35,7 +37,7 @@ $(document).ready(function(){
 
             var html = template(dettaglifilm);
 
-            $('.ricerca').append(html);
+            $('.filmcontainer').append(html);
           }
         };
       },
@@ -43,11 +45,7 @@ $(document).ready(function(){
         alert('errore');
       }
     })
-
-
   });
-
-
 
 
 
