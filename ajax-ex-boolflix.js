@@ -3,20 +3,25 @@ $(document).ready(function(){
   var source = $("#schedafilm").html();
   var template = Handlebars.compile(source);
 
+  // chiamo la funzione cercatore al click sul pulsante
   $('button').click(function(){
     cercatore();
   });
 
+  // per comodità chiamo la stessa funzione anche quando si preme invio nell'input
   $('input').keypress(function(event){
     if(event.which == 13) {
       cercatore();
     };
   });
 
-
+  // creo la funzione cercatore, che imposta la chiamata ajax e detta le condizioni per estrapolare dati
   function cercatore() {
+    // a ogni nuova ricerca voglio che il contenitore si svuoti dei risultati della ricerca precendente
     $('.filmcontainer').empty();
 
+    // imposto chiamata ajax che interroga database. Mi identifico con la mia api_key e richiedo
+    // di cercare ciò che l'utente ha inserito nell'input
     $.ajax({
       'url': 'https://api.themoviedb.org/3/search/movie',
       'method': 'GET',
@@ -40,7 +45,7 @@ $(document).ready(function(){
           // console.log(res.results[i].title);
           // console.log($('.cerca').val());
 
-          if (res.results[i].title.toLowerCase().includes($('.cerca').val())) {
+          if ($('.cerca').val().length > 0 && res.results[i].title.toLowerCase().includes($('.cerca').val().toLowerCase())) {
             dettaglifilm.Titolo = res.results[i].title;
             dettaglifilm.Titolo_originale = res.results[i].original_title;
             dettaglifilm.Lingua = res.results[i].original_language;
@@ -49,7 +54,8 @@ $(document).ready(function(){
             var html = template(dettaglifilm);
 
             $('.filmcontainer').append(html);
-          }
+
+          };
         };
       },
       'error': function() {
