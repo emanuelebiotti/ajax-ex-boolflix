@@ -30,6 +30,9 @@ $('button').click(function(){
 
         if (res.results[i].title.includes($('.cerca').val())) {
           dettaglifilm.Titolo = res.results[i].title;
+          dettaglifilm.Titolo_originale = res.results[i].original_title;
+          dettaglifilm.Lingua = res.results[i].original_language;
+          dettaglifilm.Voto = res.results[i].vote_average;
         }
       };
 
