@@ -4,7 +4,17 @@ $(document).ready(function(){
   var template = Handlebars.compile(source);
 
   $('button').click(function(){
+    cercatore();
+  });
 
+  $('input').keypress(function(event){
+    if(event.which == 13) {
+      cercatore();
+    };
+  });
+
+
+  function cercatore() {
     $('.filmcontainer').empty();
 
     $.ajax({
@@ -46,8 +56,7 @@ $(document).ready(function(){
         alert('errore');
       }
     })
-  });
-
+  }
 
 
 });
