@@ -12,7 +12,7 @@
 
     <div class="container">
       <div class="ricerca">
-        <input type="text" name="" value="">
+        <input class="cerca" type="text" name="" value="">
         <button type="button" name="button">Cerca il film!</button>
 
       </div>
@@ -20,12 +20,12 @@
 
      <!-- template da replicare -->
 
-     <script id="entry-template" type="text/x-handlebars-template">
+     <script id="schedafilm" type="text/x-handlebars-template">
        <div class="filminfo">
-         <p>Titolo: <span></span> </p>
-         <p> Titolo originale: <span></span></p>
-         <p> Lingua: <span></span> </p>
-         <p>Voto: <span></span> </p>
+         <p>Titolo: <span>{{Titolo}}</span> </p>
+         <p>Titolo originale: <span>{{Titolo_originale}}</span></p>
+         <p>Lingua: <span></span>{{Lingua}}</p>
+         <p>Voto: <span></span>{{Voto}}</p>
        </div>
       </script>
 
