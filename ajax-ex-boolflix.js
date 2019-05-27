@@ -12,7 +12,8 @@ $(document).ready(function(){
       'method': 'GET',
       'data': {
         'api_key': 'eec20b4c5f03950e27efaf1ac357366d',
-        'query': $('.cerca').val()
+        'query': $('.cerca').val(),
+        'language':'it-IT'
       },
       'success': function(res){
         // console.log(res);
