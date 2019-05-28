@@ -32,7 +32,7 @@ $(document).ready(function(){
       },
       'success': function(res){
         // console.log(res);
-        // console.log(res);
+        // console.log(res.results);
 
         var dettaglifilm = {
           'Titolo': '',
@@ -42,7 +42,6 @@ $(document).ready(function(){
         }
 
         for (var i = 0; i < res.results.length; i++) {
-          // console.log(res.results[i]);
 
           var stellina = '<i class="fas fa-star"></i>';
 
@@ -54,8 +53,9 @@ $(document).ready(function(){
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2));
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + res.results[i].poster_path;
 
+            // la stringa che identifica la lingua diviene la bandiera del paese
             if (res.results[i].original_language == "en") {
-              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/20px-Flag_of_the_United_Kingdom.svg.png" alt="">';
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
             }
             else if (res.results[i].original_language == "fr") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png" alt="">';
@@ -81,16 +81,18 @@ $(document).ready(function(){
             else if (res.results[i].original_language == "ko") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png" alt="">';
             }
+            // else if (res.results[i].origin_country[0] == "GB") {
+            //   dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/20px-Flag_of_the_United_Kingdom.svg.png" alt="">';
+            // }
+            // else if (res.results[i].origin_country[0] == "US") {
+            //   dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
+            // }
 
             var html = template(dettaglifilm);
 
-
             $('.filmcontainer').append(html);
-
           };
-
         };
-
       },
       'error': function() {
         alert('errore');
@@ -107,8 +109,7 @@ $(document).ready(function(){
       },
       'success': function(restv){
         // console.log(res);
-        console.log(restv.results);
-        // console.log(restv);
+        // console.log(restv.results);
 
         var dettaglifilm = {
           'Locandina': '',
@@ -119,9 +120,6 @@ $(document).ready(function(){
         }
 
         for (var i = 0; i < restv.results.length; i++) {
-          // console.log(res.results[i].title);
-          // console.log($('.cerca').val());
-          console.log(restv.results);
 
           var stellina = '<i class="fas fa-star"></i>';
 
@@ -133,8 +131,10 @@ $(document).ready(function(){
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(restv.results[i].vote_average))/2));
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + restv.results[i].poster_path;
 
+            // la stringa che identifica la lingua diviene la bandiera del paese
+
             if (restv.results[i].original_language == "en") {
-              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/20px-Flag_of_the_United_Kingdom.svg.png" alt="">';
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
             }
             else if (restv.results[i].original_language == "fr") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png" alt="">';
@@ -160,6 +160,12 @@ $(document).ready(function(){
             else if (restv.results[i].original_language == "ko") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png" alt="">';
             }
+            // else if (restv.results[i].origin_country[0] == "GB") {
+            //   dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/20px-Flag_of_the_United_Kingdom.svg.png" alt="">';
+            // }
+            // else if (restv.results[i].origin_country[0] == "US") {
+            //   dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
+            // }
 
             var html = template(dettaglifilm);
 
