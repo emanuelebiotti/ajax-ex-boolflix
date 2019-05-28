@@ -55,7 +55,7 @@ $(document).ready(function(){
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + res.results[i].poster_path;
 
             if (res.results[i].original_language == "en") {
-              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/20px-Flag_of_the_United_Kingdom.svg.png" alt="">';
             }
             else if (res.results[i].original_language == "fr") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png" alt="">';
@@ -65,6 +65,21 @@ $(document).ready(function(){
             }
             else if (res.results[i].original_language == "it") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/20px-Flag_of_Italy.svg.png" alt="">';
+            }
+            else if (res.results[i].original_language == "ja") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/20px-Flag_of_Japan.svg.png" alt="">';
+            }
+            else if (res.results[i].original_language == "ru") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/20px-Flag_of_Russia.svg.png" alt="">';
+            }
+            else if (res.results[i].original_language == "zh") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/20px-Flag_of_the_People%27s_Republic_of_China.svg.png" alt="">';
+            }
+            else if (res.results[i].original_language == "es") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png" alt="">';
+            }
+            else if (res.results[i].original_language == "ko") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png" alt="">';
             }
 
             var html = template(dettaglifilm);
@@ -119,7 +134,7 @@ $(document).ready(function(){
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + restv.results[i].poster_path;
 
             if (restv.results[i].original_language == "en") {
-              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/20px-Flag_of_the_United_Kingdom.svg.png" alt="">';
             }
             else if (restv.results[i].original_language == "fr") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png" alt="">';
@@ -129,6 +144,21 @@ $(document).ready(function(){
             }
             else if (restv.results[i].original_language == "it") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/20px-Flag_of_Italy.svg.png" alt="">';
+            }
+            else if (restv.results[i].original_language == "ja") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9e/Flag_of_Japan.svg/20px-Flag_of_Japan.svg.png" alt="">';
+            }
+            else if (restv.results[i].original_language == "ru") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/20px-Flag_of_Russia.svg.png" alt="">';
+            }
+            else if (restv.results[i].original_language == "zh") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/20px-Flag_of_the_People%27s_Republic_of_China.svg.png" alt="">';
+            }
+            else if (restv.results[i].original_language == "es") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9a/Flag_of_Spain.svg/20px-Flag_of_Spain.svg.png" alt="">';
+            }
+            else if (restv.results[i].original_language == "ko") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/20px-Flag_of_South_Korea.svg.png" alt="">';
             }
 
             var html = template(dettaglifilm);
