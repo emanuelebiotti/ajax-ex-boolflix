@@ -1,65 +1,98 @@
 * {
   box-sizing: border-box;
   font-family: sans-serif;
+  margin:0;
+}
+header {
+  width:100%;
+  height: 100px;
+  display: flex;
+  background-color: black;
+}
+.header-left {
+  width: 20%;
+  height:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo h1 {
+  color:red;
+  text-transform: uppercase;
+}
+.logo h1:hover {
+  cursor: pointer;
+  color: #941A00;
+}
+.header-right {
+  width:80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
 }
 .container {
-  width: 800px;
+  width: 90%;
   height:800px;
   margin:0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 .ricerca {
-  width:100%;
+  width:40%;
+  height:100%;
   display: flex;
   align-items:center;
-  flex-direction: column;
-  overflow: auto;
+  align-items: center;
+  justify-content:flex-end;
 }
 input {
-  width:340px;
-  height:40px;
-  font-size: 30px;
-  margin-bottom: 10px;
+  width:140px;
+  height:30px;
+  font-size: 15px;
   border:1px solid white;
+  margin-right: 10px;
 }
 input::placeholder {
    color:lightgrey;
 }
 button {
-  width:200px;
-  height:40px;
-  font-size: 20px;
+  width:150px;
+  height:30px;
+  font-size: 15px;
   border-radius: 5px;
-  background-color: #08BAB5;
+  background-color: lightgrey;
   color:white;
   font-family: sans-serif;
+  margin-right: 10px;
 }
 button:hover {
   cursor:pointer;
-  color:lightgrey;
+  color:grey;
 }
 button:focus, input:focus {
   outline:0;
 }
 .filmcontainer {
-  width:70%;
+  width:95%;
   height:80%;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .filminfo {
   border:1px solid lightgrey;
   border-radius: 5px;
-  width:50%;
-  height: auto;
+  width:200px;
+  height: 300px;
   display:flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   overflow: auto;
+  margin:5px;
 }
