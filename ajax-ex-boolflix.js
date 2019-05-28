@@ -46,18 +46,15 @@ $(document).ready(function(){
           // console.log($('.cerca').val());
 
           var stellina = '<i class="fas fa-star"></i>';
-          console.log(stellina);
 
           if ($('.cerca').val().length > 0 && res.results[i].title.toLowerCase().includes($('.cerca').val().toLowerCase())) {
             dettaglifilm.Titolo = res.results[i].title;
             dettaglifilm.Titolo_originale = res.results[i].original_title;
             dettaglifilm.Lingua = res.results[i].original_language;
+            // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2));
 
             var html = template(dettaglifilm);
-
-            var stelline = dettaglifilm.Voto;
-            console.log(stelline);
 
             $('.filmcontainer').append(html);
 
