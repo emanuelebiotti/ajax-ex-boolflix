@@ -54,6 +54,7 @@ $(document).ready(function(){
             dettaglifilm.Lingua = res.results[i].original_language;
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2));
+            dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + res.results[i].poster_path;
 
             var html = template(dettaglifilm);
 
@@ -82,6 +83,7 @@ $(document).ready(function(){
         console.log(restv);
         //
         var dettaglifilm = {
+          'Locandina': '',
           'Titolo': '',
           'Titolo_originale': '' ,
           'Lingua': '',
@@ -100,6 +102,7 @@ $(document).ready(function(){
             dettaglifilm.Lingua = restv.results[i].original_language;
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(restv.results[i].vote_average))/2));
+            dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + restv.results[i].poster_path;
 
             var html = template(dettaglifilm);
 
