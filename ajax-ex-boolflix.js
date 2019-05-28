@@ -32,8 +32,7 @@ $(document).ready(function(){
       },
       'success': function(res){
         // console.log(res);
-        // console.log(res.results);
-
+        // console.log(res);
 
         var dettaglifilm = {
           'Titolo': '',
@@ -43,8 +42,7 @@ $(document).ready(function(){
         }
 
         for (var i = 0; i < res.results.length; i++) {
-          // console.log(res.results[i].title);
-          // console.log($('.cerca').val());
+          console.log(res.results[i]);
 
           var stellina = '<i class="fas fa-star"></i>';
 
@@ -56,12 +54,26 @@ $(document).ready(function(){
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2));
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + res.results[i].poster_path;
 
+            if (res.results[i].original_language == "en") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
+            }
+            else if (res.results[i].original_language == "fr") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png" alt="">';
+            }
+            else if (res.results[i].original_language == "de") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png" alt="">';
+            }
+            else if (res.results[i].original_language == "it") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/20px-Flag_of_Italy.svg.png" alt="">';
+            }
+
             var html = template(dettaglifilm);
+
 
             $('.filmcontainer').append(html);
 
           };
-          // if (dettaglifilm.Locandina == )
+
         };
 
       },
@@ -105,6 +117,19 @@ $(document).ready(function(){
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(restv.results[i].vote_average))/2));
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + restv.results[i].poster_path;
+
+            if (restv.results[i].original_language == "en") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
+            }
+            else if (restv.results[i].original_language == "fr") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/20px-Flag_of_France.svg.png" alt="">';
+            }
+            else if (restv.results[i].original_language == "de") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/20px-Flag_of_Germany.svg.png" alt="">';
+            }
+            else if (restv.results[i].original_language == "it") {
+              dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/20px-Flag_of_Italy.svg.png" alt="">';
+            }
 
             var html = template(dettaglifilm);
 
