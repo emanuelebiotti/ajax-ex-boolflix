@@ -42,7 +42,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
 .ricerca {
   width:40%;
@@ -83,7 +83,7 @@ button:focus, input:focus {
 }
 .filmcontainer {
   width:100%;
-  height:97%;
+  height:700px;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;

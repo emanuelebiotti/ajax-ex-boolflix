@@ -42,7 +42,7 @@ $(document).ready(function(){
         }
 
         for (var i = 0; i < res.results.length; i++) {
-          console.log(res.results[i]);
+          // console.log(res.results[i]);
 
           var stellina = '<i class="fas fa-star"></i>';
 
@@ -107,7 +107,7 @@ $(document).ready(function(){
       },
       'success': function(restv){
         // console.log(res);
-        // console.log(res.results);
+        console.log(restv.results);
         // console.log(restv);
 
         var dettaglifilm = {
