@@ -67,6 +67,52 @@ $(document).ready(function(){
         alert('errore');
       }
     })
+
+    $.ajax({
+      'url': 'https://api.themoviedb.org/3/search/tv',
+      'method': 'GET',
+      'data': {
+        'api_key': 'eec20b4c5f03950e27efaf1ac357366d',
+        'query': $('.cerca').val(),
+        'language':'it-IT'
+      },
+      'success': function(restv){
+        // console.log(res);
+        // console.log(res.results);
+        console.log(restv);
+        //
+        var dettaglifilm = {
+          'Titolo': '',
+          'Titolo_originale': '' ,
+          'Lingua': '',
+          'Voto': ''
+        }
+
+        for (var i = 0; i < restv.results.length; i++) {
+          // console.log(res.results[i].title);
+          // console.log($('.cerca').val());
+
+          var stellina = '<i class="fas fa-star"></i>';
+
+          if ($('.cerca').val().length > 0 && restv.results[i].name.toLowerCase().includes($('.cerca').val().toLowerCase())) {
+            dettaglifilm.Titolo = restv.results[i].name;
+            dettaglifilm.Titolo_originale = restv.results[i].original_title;
+            dettaglifilm.Lingua = restv.results[i].original_language;
+            // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
+            dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(restv.results[i].vote_average))/2));
+
+            var html = template(dettaglifilm);
+
+            $('.filmcontainer').append(html);
+
+          };
+        };
+
+      },
+      'error': function() {
+        alert('errore');
+      }
+    })
   }
 
 
