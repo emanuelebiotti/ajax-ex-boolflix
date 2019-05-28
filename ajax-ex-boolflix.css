@@ -71,6 +71,7 @@ button {
 button:hover {
   cursor:pointer;
   color:grey;
+  background-color: white;
 }
 button:focus, input:focus {
   outline:0;

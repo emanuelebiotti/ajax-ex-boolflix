@@ -45,18 +45,25 @@ $(document).ready(function(){
           // console.log(res.results[i].title);
           // console.log($('.cerca').val());
 
+          var stellina = '<i class="fas fa-star"></i>';
+          console.log(stellina);
+
           if ($('.cerca').val().length > 0 && res.results[i].title.toLowerCase().includes($('.cerca').val().toLowerCase())) {
             dettaglifilm.Titolo = res.results[i].title;
             dettaglifilm.Titolo_originale = res.results[i].original_title;
             dettaglifilm.Lingua = res.results[i].original_language;
-            dettaglifilm.Voto = res.results[i].vote_average;
+            dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2));
 
             var html = template(dettaglifilm);
+
+            var stelline = dettaglifilm.Voto;
+            console.log(stelline);
 
             $('.filmcontainer').append(html);
 
           };
         };
+
       },
       'error': function() {
         alert('errore');
