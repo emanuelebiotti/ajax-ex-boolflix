@@ -61,6 +61,7 @@ $(document).ready(function(){
             $('.filmcontainer').append(html);
 
           };
+          // if (dettaglifilm.Locandina == )
         };
 
       },
@@ -80,8 +81,8 @@ $(document).ready(function(){
       'success': function(restv){
         // console.log(res);
         // console.log(res.results);
-        console.log(restv);
-        //
+        // console.log(restv);
+
         var dettaglifilm = {
           'Locandina': '',
           'Titolo': '',
@@ -93,12 +94,13 @@ $(document).ready(function(){
         for (var i = 0; i < restv.results.length; i++) {
           // console.log(res.results[i].title);
           // console.log($('.cerca').val());
+          console.log(restv.results);
 
           var stellina = '<i class="fas fa-star"></i>';
 
           if ($('.cerca').val().length > 0 && restv.results[i].name.toLowerCase().includes($('.cerca').val().toLowerCase())) {
             dettaglifilm.Titolo = restv.results[i].name;
-            dettaglifilm.Titolo_originale = restv.results[i].original_title;
+            dettaglifilm.Titolo_originale = restv.results[i].original_name;
             dettaglifilm.Lingua = restv.results[i].original_language;
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(restv.results[i].vote_average))/2));
