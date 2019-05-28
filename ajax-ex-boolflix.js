@@ -34,6 +34,7 @@ $(document).ready(function(){
         // console.log(res);
         // console.log(res.results);
 
+
         var dettaglifilm = {
           'Titolo': '',
           'Titolo_originale': '' ,
