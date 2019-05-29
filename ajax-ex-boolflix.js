@@ -34,7 +34,7 @@ $(document).ready(function(){
       },
       'success': function(res){
         // console.log(res);
-        console.log(res.results);
+        // console.log(res.results);
 
         var dettaglifilm = {
           'Titolo': '',
@@ -58,6 +58,7 @@ $(document).ready(function(){
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w342' + res.results[i].poster_path;
             dettaglifilm.Sfondo = 'https://image.tmdb.org/t/p/w92' + res.results[i].backdrop_path;
             dettaglifilm.Trama = res.results[i].overview;
+
 
             // la stringa che identifica la lingua diviene la bandiera del paese
             if (res.results[i].original_language == "en") {
@@ -98,6 +99,7 @@ $(document).ready(function(){
 
             $('.filmcontainer').append(html);
             $('.cerca').val('');
+
           };
         };
       },
