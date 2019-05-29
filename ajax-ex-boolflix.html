@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="ajax-ex-boolflix.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-    <title></title>
+    <title>BOOLFLIX</title>
   </head>
   <body>
 
@@ -36,11 +36,16 @@
 
      <script id="schedafilm" type="text/x-handlebars-template">
        <div class="filminfo">
-         <img src="{{Locandina}}" alt="">
-         <p><strong> <span>{{Titolo}}</span></strong></p>
-         <p>Titolo originale: <span>{{Titolo_originale}}</span></p>
-         <p>Lingua: <span></span>{{{Lingua}}}</p>
-         <p class="stelle">Voto: <span>{{{Voto}}}</span></p>
+         <div class="poster">
+            <img src="{{Locandina}}" alt="">
+         </div>
+         <div class="informazioni">
+           <p><strong> <span>{{Titolo}}</span></strong></p>
+           <p> <strong>Titolo originale:</strong> <span>{{Titolo_originale}}</span></p>
+           <p> <strong>Lingua:</strong> <span></span>{{{Lingua}}}</p>
+           <p class="stelle">Voto: <span>{{{Voto}}}</span></p>
+           <p> <strong>Trama:</strong> <span> {{Trama}}</span> </p>
+         </div>
        </div>
       </script>
 
@@ -52,3 +57,7 @@
 
   </body>
 </html>
+
+<!-- <div class="poster">
+   <img src="{{Locandina}}" alt="">
+</div> -->

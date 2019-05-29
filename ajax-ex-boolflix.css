@@ -4,7 +4,7 @@
   margin:0;
 }
 body {
-  background-color: lightgrey;
+  background-color: white;
   overflow: hidden;
 }
 header {
@@ -82,7 +82,7 @@ button:focus, input:focus {
   outline:0;
 }
 .filmcontainer {
-  width:100%;
+  width:90%;
   height:700px;
   overflow: auto;
   display: flex;
@@ -93,15 +93,32 @@ button:focus, input:focus {
     display: none;
 }
 .filminfo {
-  border:1px solid grey;
+  /* border:1px solid grey; */
   border-radius: 5px;
-  width:200px;
-  height: 300px;
+  width:auto;
+  height: auto;
   display:flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  text-align: center;
+  /* text-align: center; */
   overflow: auto;
-  margin:5px;
+  margin:20px;
+  position: relative;
+}
+.informazioni {
+  max-width: 340px;
+  height:auto;
+  position: absolute; */
+  bottom:40%;
+  transform:translate(0% 40%);
+  z-index: -1;
+  overflow: auto;
+  padding: 0px 10px;
+  display:flex;
+  flex-direction: column;
+  font-size: 95%;
+}
+.poster img:hover {
+  opacity:0.2;
 }

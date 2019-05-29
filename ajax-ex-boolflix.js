@@ -34,13 +34,14 @@ $(document).ready(function(){
       },
       'success': function(res){
         // console.log(res);
-        // console.log(res.results);
+        console.log(res.results);
 
         var dettaglifilm = {
           'Titolo': '',
           'Titolo_originale': '' ,
           'Lingua': '',
-          'Voto': ''
+          'Voto': '',
+          'Trama':''
         }
 
         for (var i = 0; i < res.results.length; i++) {
@@ -54,7 +55,9 @@ $(document).ready(function(){
             dettaglifilm.Lingua = res.results[i].original_language;
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2)) + stellinavuota.repeat(5-(Math.ceil((Math.ceil(res.results[i].vote_average))/2)));
-            dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + res.results[i].poster_path;
+            dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w342' + res.results[i].poster_path;
+            dettaglifilm.Sfondo = 'https://image.tmdb.org/t/p/w92' + res.results[i].backdrop_path;
+            dettaglifilm.Trama = res.results[i].overview;
 
             // la stringa che identifica la lingua diviene la bandiera del paese
             if (res.results[i].original_language == "en") {
@@ -126,14 +129,17 @@ $(document).ready(function(){
         for (var i = 0; i < restv.results.length; i++) {
 
           var stellina = '<i class="fas fa-star"></i>';
+          var stellinavuota = '<i class="far fa-star"></i>';
 
           if (restv.results[i].name.toLowerCase().includes($('.cerca').val().toLowerCase())) {
             dettaglifilm.Titolo = restv.results[i].name;
             dettaglifilm.Titolo_originale = restv.results[i].original_name;
             dettaglifilm.Lingua = restv.results[i].original_language;
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
-            dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2)) + stellinavuota.repeat(5-(Math.ceil((Math.ceil(res.results[i].vote_average))/2)));;
-            dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + restv.results[i].poster_path;
+            dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(restv.results[i].vote_average))/2)) + stellinavuota.repeat(5-(Math.ceil((Math.ceil(restv.results[i].vote_average))/2)));;
+            dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w342' + restv.results[i].poster_path;
+            dettaglifilm.Trama = restv.results[i].overview;
+
 
             // la stringa che identifica la lingua diviene la bandiera del paese
 
