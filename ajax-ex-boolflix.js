@@ -10,9 +10,11 @@ $(document).ready(function(){
 
   // per comodità chiamo la stessa funzione anche quando si preme invio nell'input
   $('input').keypress(function(event){
+
     if(event.which == 13) {
       cercatore();
     };
+
   });
 
   // creo la funzione cercatore, che imposta la chiamata ajax e detta le condizioni per estrapolare dati
@@ -44,13 +46,14 @@ $(document).ready(function(){
         for (var i = 0; i < res.results.length; i++) {
 
           var stellina = '<i class="fas fa-star"></i>';
+          var stellinavuota = '<i class="far fa-star"></i>'
 
-          if ($('.cerca').val().length > 0 && res.results[i].title.toLowerCase().includes($('.cerca').val().toLowerCase())) {
+          if (res.results[i].title.toLowerCase().includes($('.cerca').val().toLowerCase())) {
             dettaglifilm.Titolo = res.results[i].title;
             dettaglifilm.Titolo_originale = res.results[i].original_title;
             dettaglifilm.Lingua = res.results[i].original_language;
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
-            dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2));
+            dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2)) + stellinavuota.repeat(5-(Math.ceil((Math.ceil(res.results[i].vote_average))/2)));
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + res.results[i].poster_path;
 
             // la stringa che identifica la lingua diviene la bandiera del paese
@@ -91,6 +94,7 @@ $(document).ready(function(){
             var html = template(dettaglifilm);
 
             $('.filmcontainer').append(html);
+            $('.cerca').val('');
           };
         };
       },
@@ -123,12 +127,12 @@ $(document).ready(function(){
 
           var stellina = '<i class="fas fa-star"></i>';
 
-          if ($('.cerca').val().length > 0 && restv.results[i].name.toLowerCase().includes($('.cerca').val().toLowerCase())) {
+          if (restv.results[i].name.toLowerCase().includes($('.cerca').val().toLowerCase())) {
             dettaglifilm.Titolo = restv.results[i].name;
             dettaglifilm.Titolo_originale = restv.results[i].original_name;
             dettaglifilm.Lingua = restv.results[i].original_language;
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
-            dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(restv.results[i].vote_average))/2));
+            dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2)) + stellinavuota.repeat(5-(Math.ceil((Math.ceil(res.results[i].vote_average))/2)));;
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w92' + restv.results[i].poster_path;
 
             // la stringa che identifica la lingua diviene la bandiera del paese
@@ -170,16 +174,18 @@ $(document).ready(function(){
             var html = template(dettaglifilm);
 
             $('.filmcontainer').append(html);
+            $('.cerca').val('');
 
           };
         };
-
       },
       'error': function() {
         alert('errore');
       }
     })
+
   }
 
+  $('input').val('');
 
 });
