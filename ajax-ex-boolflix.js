@@ -56,11 +56,10 @@ $(document).ready(function(){
             // trasformo il voto numerico da 1 a 10 in un voto in stelline da 1 a 5
             dettaglifilm.Voto = stellina.repeat(Math.ceil((Math.ceil(res.results[i].vote_average))/2)) + stellinavuota.repeat(5-(Math.ceil((Math.ceil(res.results[i].vote_average))/2)));
             dettaglifilm.Locandina = 'https://image.tmdb.org/t/p/w342' + res.results[i].poster_path;
-            dettaglifilm.Sfondo = 'https://image.tmdb.org/t/p/w92' + res.results[i].backdrop_path;
+            // dettaglifilm.Sfondo = 'https://image.tmdb.org/t/p/w92' + res.results[i].backdrop_path;
             dettaglifilm.Trama = res.results[i].overview;
 
-
-            // la stringa che identifica la lingua diviene la bandiera del paese
+            // detto le condizioni affinché la stringa che identifica la lingua diventi la bandiera del paese
             if (res.results[i].original_language == "en") {
               dettaglifilm.Lingua = '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/20px-Flag_of_the_United_States.svg.png" alt="">';
             }
