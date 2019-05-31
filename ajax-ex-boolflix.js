@@ -33,7 +33,6 @@ $(document).ready(function(){
         'language':'it-IT'
       },
       'success': function(res){
-        // console.log(res);
         // console.log(res.results);
 
         var dettaglifilm = {

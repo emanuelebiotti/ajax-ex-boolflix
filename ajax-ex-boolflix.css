@@ -93,7 +93,6 @@ button:focus, input:focus {
   display: none;
 }
 .filminfo {
-  /* border:1px solid grey; */
   border-radius: 5px;
   width:auto;
   height: auto;
@@ -101,7 +100,6 @@ button:focus, input:focus {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  /* text-align: center; */
   overflow: auto;
   margin:20px;
   position: relative;
